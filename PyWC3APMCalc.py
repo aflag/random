@@ -602,7 +602,9 @@ class Interface:
         bb1=BusyBar(self.master, text='Processing ...')
         bb1.pack()
 
+        self.open_button.config(state=DISABLED)
         output = main(fname, lambda: self.updater(bb1))
+        self.open_button.config(state=NORMAL)
 
         bb1.of()
         bb1.destroy()
